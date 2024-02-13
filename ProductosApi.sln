@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductosApi", "ProductosApi\ProductosApi.csproj", "{D965BC4A-2BA9-48D4-922D-13A543F4110F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Productos.Api", "ProductosApi\Productos.Api.csproj", "{D965BC4A-2BA9-48D4-922D-13A543F4110F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Productos.Domain", "Productos.Domain\Productos.Domain.csproj", "{C010A56C-5DBE-4620-B21B-733D89E64DB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D965BC4A-2BA9-48D4-922D-13A543F4110F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D965BC4A-2BA9-48D4-922D-13A543F4110F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D965BC4A-2BA9-48D4-922D-13A543F4110F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C010A56C-5DBE-4620-B21B-733D89E64DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C010A56C-5DBE-4620-B21B-733D89E64DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C010A56C-5DBE-4620-B21B-733D89E64DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C010A56C-5DBE-4620-B21B-733D89E64DB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
