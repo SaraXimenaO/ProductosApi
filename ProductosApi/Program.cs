@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Products.Infrastructure.Context;
-
+using Products.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -12,6 +12,8 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(configuration.GetConnectionString("db"),
         x => x.MigrationsAssembly("Products.Api"));
 });
+
+builder.Services.AddDomainServices();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
