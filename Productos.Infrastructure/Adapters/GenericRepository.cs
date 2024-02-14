@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Products.Infrastructure.Adapters;
 
-public class GenericRepository<T> : IRepository<T> where T : DomainEntity
+public class GenericRepository<T> : IGenericRepository<T> where T : DomainEntity
 {
     readonly Context.Context  _context;
     readonly DbSet<T> _dbSet;

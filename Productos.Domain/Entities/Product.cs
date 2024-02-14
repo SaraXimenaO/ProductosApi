@@ -1,14 +1,11 @@
 ﻿using Products.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Throw;
 
 namespace Products.Domain.Entities
 {
     public class Product : DomainEntity
     {
+        private string _name;
 
         public Product(string name, string description, Status status, int stock, decimal price ) 
         {
@@ -19,8 +16,7 @@ namespace Products.Domain.Entities
             Price = price;
         }
 
-
-        public string Name { get; set; }
+        public string Name { get => _name; set => value.ThrowIfNull().IfEmpty(); }
         public string Description { get; set; }
         public Status Status { get; set; }
         public int Stock { get; set; }

@@ -14,7 +14,7 @@ public static class LoadServices
 {
    public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
-        services.AddTransient(typeof(IRepository<>), typeof(GenericRepository<>));
+        services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         var repositories = AppDomain.CurrentDomain.GetAssemblies()
             .Where(assembly =>
