@@ -18,5 +18,15 @@ namespace Products.Infrastructure.Adapters.Products
         {
             return _genericRepository.AddAsync(product);
         }
+
+        public void UpdateAsync(Product product)
+        {
+            _genericRepository.UpdateAsync(product);
+        }
+
+        public Task<Product> GetProductAsync(int id)
+        {
+            return _genericRepository.GetByIdAsync(id);
+        }
     }
 }
