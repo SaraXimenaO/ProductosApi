@@ -2,7 +2,7 @@
 using Products.Domain.Entities;
 using Products.Infrastructure.Ports;
 
-namespace Products.Infrastructure.Adapters.Products
+namespace Products.Infrastructure.Adapters
 {
     public class ProductRepository : IProductRepository
     {

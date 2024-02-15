@@ -10,7 +10,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : DomainEntity
     readonly Context.Context  _context;
     readonly DbSet<T> _dbSet;
 
-    public GenericRepository(Context.Context context, DbSet<T> dbSet)
+    public GenericRepository(Context.Context context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(Context));
         _dbSet = _context.Set<T>();
