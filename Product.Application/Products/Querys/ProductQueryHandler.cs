@@ -7,32 +7,33 @@ namespace Products.Application.Products.Querys
     public class ProductQueryHandler : IRequestHandler<ProductQuery, ProductDto>
     {
         private readonly IProductRepository _productRepository;
+        private readonly IProductStatusCache _productStatusCache;
 
-        public ProductQueryHandler(IProductRepository productRepository)
+        public ProductQueryHandler(IProductRepository productRepository, IProductStatusCache productStatusCache)
         {
             _productRepository = productRepository;
+            _productStatusCache = productStatusCache;
         }
 
         public async Task<ProductDto> Handle(ProductQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var Product = await _productRepository.GetProductAsync(request.ProductId);
-                return new ProductDto(
-                    Product.ProductId, 
-                    Product.Name, 
-                    Product.Status.ToString(), 
-                    Product.Stock, 
-                    Product.Description, 
-                    Product.Price, 
-                    0, 
-                    Product.Price 
-                    );
-            }
-            catch (Exception ex) {
-                throw new Exception(ex.Message);
-            
-            }
+            var productStatusDictionary = _productStatusCache.GetProductStatusDictionary();
+            var Product = await _productRepository.GetProductAsync(request.ProductId);
+            string statusName = productStatusDictionary.TryGetValue((int)Product.Status, out string name) ? name : "Desconocido";
+
+            return new ProductDto(
+                Product.ProductId,
+                Product.Name,
+                statusName,
+                Product.Stock,
+                Product.Description,
+                Product.Price,
+                0,
+                Product.Price
+            );
         }
+
     }
 }
+
+
