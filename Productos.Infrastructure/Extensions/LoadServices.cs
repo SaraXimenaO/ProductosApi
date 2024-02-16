@@ -18,6 +18,7 @@ public static class LoadServices
         services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddTransient<IProductRepository, ProductRepository>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
+        services.AddTransient<IResponseTimeLogger, FileResponseTimeLogger>();
 
         return services;
     }
