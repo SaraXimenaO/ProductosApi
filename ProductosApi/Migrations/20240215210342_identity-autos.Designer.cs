@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Products.Infrastructure.Context;
 
@@ -11,9 +12,11 @@ using Products.Infrastructure.Context;
 namespace Products.Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240215210342_identity-autos")]
+    partial class identityautos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,8 +56,7 @@ namespace Products.Api.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ProductId")
-                        .HasName("PrimaryKey_ProductId");
+                    b.HasKey("ProductId");
 
                     b.ToTable("Product");
                 });

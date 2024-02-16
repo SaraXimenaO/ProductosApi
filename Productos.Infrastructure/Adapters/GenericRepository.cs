@@ -1,25 +1,24 @@
-﻿using Products.Domain.Entities;
-using Products.Infrastructure.Ports;
+﻿using Products.Infrastructure.Ports;
 using Products.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Products.Domain.Entities;
 
 namespace Products.Infrastructure.Adapters;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : DomainEntity
 {
-    readonly Context.Context  _context;
+    readonly ApplicationContext _context;
     readonly DbSet<T> _dbSet;
 
-    public GenericRepository(Context.Context context)
+    public GenericRepository(ApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(Context));
-        _dbSet = _context.Set<T>();
+        _dbSet = context.Set<T>();
     }
 
     public async Task<T> AddAsync(T entity)
-    {
-        _ = entity ?? throw new ArgumentNullException(nameof(entity));
-        await _dbSet.AddAsync(entity);
+    { 
+         await _dbSet.AddAsync(entity);
         return entity;
     }
 
@@ -32,5 +31,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : DomainEntity
     {
         _dbSet.Update(entity);
     }
+
+    public void Save() => _context.SaveChanges();
 }
 

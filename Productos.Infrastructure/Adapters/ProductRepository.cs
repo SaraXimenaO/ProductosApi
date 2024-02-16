@@ -2,31 +2,32 @@
 using Products.Domain.Entities;
 using Products.Infrastructure.Ports;
 
-namespace Products.Infrastructure.Adapters
+namespace Products.Infrastructure.Adapters;
+
+public class ProductRepository : IProductRepository
 {
-    public class ProductRepository : IProductRepository
+    readonly IGenericRepository<Product> _genericRepository;
+
+    public ProductRepository(IGenericRepository<Product> genericRepository)
     {
-        private readonly IGenericRepository<Product> _genericRepository;
-
-        public ProductRepository(IGenericRepository<Product> genericRepository)
-        {
-            _genericRepository = genericRepository;
-        }
+        _genericRepository = genericRepository;
+    }
 
 
-        public Task<Product> AddAsync(Product product)
-        {
-            return _genericRepository.AddAsync(product);
-        }
+    public async Task<Product> AddAsync(Product product)
+    {
+        var result = await _genericRepository.AddAsync(product);
+        _genericRepository.Save();
+        return result;
+    }
 
-        public void UpdateAsync(Product product)
-        {
-            _genericRepository.UpdateAsync(product);
-        }
+    public void UpdateAsync(Product product)
+    {
+        _genericRepository.UpdateAsync(product);
+    }
 
-        public Task<Product> GetProductAsync(int id)
-        {
-            return _genericRepository.GetByIdAsync(id);
-        }
+    public Task<Product> GetProductAsync(int id)
+    {
+        return _genericRepository.GetByIdAsync(id);
     }
 }

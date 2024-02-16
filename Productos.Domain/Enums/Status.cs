@@ -1,8 +1,7 @@
-﻿namespace Products.Domain.Enums
+﻿namespace Products.Domain.Enums;
+
+public enum Status
 {
-    public enum Status
-    {
-        Inactive = 0,
-        Active = 1,
-    }
+    Inactive = 0,
+    Active = 1,
 }

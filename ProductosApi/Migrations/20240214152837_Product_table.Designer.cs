@@ -11,7 +11,7 @@ using Products.Infrastructure.Context;
 
 namespace Products.Api.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20240214152837_Product_table")]
     partial class Producttable
     {

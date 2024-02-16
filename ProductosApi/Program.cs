@@ -11,10 +11,15 @@ try
 	var builder = WebApplication.CreateBuilder(args);
 	var configuration = builder.Configuration;
 
-	// Add services to the container.
+    // Add services to the container.
 
-	builder.Services.AddAuthorization();
+    builder.Services.AddDbContext<ApplicationContext>(options =>
+    {
+        options.UseSqlServer(configuration.GetConnectionString("db"),
+            x => x.MigrationsAssembly("Products.Api"));
+    });
 
+    builder.Services.AddAuthorization();
 	builder.Services.AddDomainServices();
     builder.Services.AddControllers();
 
@@ -22,11 +27,7 @@ try
     builder.Services.AddEndpointsApiExplorer();
 	builder.Services.AddSwaggerGen();
 	builder.Services.AddMediatR(Assembly.Load("Products.Application"), typeof(Program).Assembly);
-    builder.Services.AddDbContext<Context>(options =>
-    {
-        options.UseSqlServer(configuration.GetConnectionString("db"),
-            x => x.MigrationsAssembly("Products.Api"));
-    });
+    
 
     var app = builder.Build();
 

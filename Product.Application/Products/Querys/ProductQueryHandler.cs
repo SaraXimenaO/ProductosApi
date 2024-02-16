@@ -19,7 +19,7 @@ namespace Products.Application.Products.Querys
             {
                 var Product = await _productRepository.GetProductAsync(request.ProductId);
                 return new ProductDto(
-                    Product.Id, 
+                    Product.ProductId, 
                     Product.Name, 
                     Product.Status.ToString(), 
                     Product.Stock, 

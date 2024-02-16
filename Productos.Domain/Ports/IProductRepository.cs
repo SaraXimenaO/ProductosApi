@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Products.Domain.Ports
+namespace Products.Domain.Ports;
+
+public interface IProductRepository
 {
-    public interface IProductRepository
-    {
-        Task<Product> AddAsync(Product product);
-        void UpdateAsync(Product product);
-        Task<Product> GetProductAsync(int id);
-    }
+    Task<Product> AddAsync(Product product);
+    void UpdateAsync(Product product);
+    Task<Product> GetProductAsync(int id);
 }

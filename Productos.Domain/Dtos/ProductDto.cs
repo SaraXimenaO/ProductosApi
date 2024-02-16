@@ -1,7 +1,7 @@
 ﻿namespace Products.Domain.Dtos;
 
 public record ProductDto(
-    int ProductId, 
+    int? ProductId, 
     string Name, 
     string StatusName, 
     int Stock, 
