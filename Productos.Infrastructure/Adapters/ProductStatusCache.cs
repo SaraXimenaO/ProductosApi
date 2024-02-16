@@ -3,11 +3,11 @@ using Products.Domain.Ports;
 
 namespace Products.Infrastructure.Adapters;
 
-public class ProductStatusCacheAdapter: IProductStatusCache
+public class ProductStatusCache: IProductStatusCache
 {
     private readonly IMemoryCache _cache;
 
-    public ProductStatusCacheAdapter(IMemoryCache cache)
+    public ProductStatusCache(IMemoryCache cache)
     {
         _cache = cache;
     }

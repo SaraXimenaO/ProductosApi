@@ -19,7 +19,7 @@ public static class LoadServices
         services.AddTransient<IProductRepository, ProductRepository>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IResponseTimeLogger, FileResponseTimeLogger>();
-        services.AddTransient<IProductStatusCache, ProductStatusCacheAdapter>();
+        services.AddTransient<IProductStatusCache, ProductStatusCache>();
 
         return services;
     }

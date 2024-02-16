@@ -5,6 +5,7 @@ using Products.Application.Products.Querys;
 using Products.Infrastructure.Context;
 using Products.Infrastructure.Extensions;
 using System.Reflection;
+using Products.Infrastructure.Adapters;
 
 try
 {
@@ -23,6 +24,7 @@ try
 	builder.Services.AddDomainServices();
 	builder.Services.AddAutoMapper(Assembly.Load("Products.Application"));
     builder.Services.AddMemoryCache();
+	builder.Services.AddHttpClient<DiscountService>();
     builder.Services.AddControllers();
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
