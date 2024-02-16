@@ -10,6 +10,6 @@ namespace Products.Domain.Ports;
 public interface IProductRepository
 {
     Task<Product> AddAsync(Product product);
-    void UpdateAsync(Product product);
+    Task UpdateAsync(Product product);
     Task<Product> GetProductAsync(int id);
 }

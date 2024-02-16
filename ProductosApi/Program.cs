@@ -21,6 +21,7 @@ try
 
     builder.Services.AddAuthorization();
 	builder.Services.AddDomainServices();
+	builder.Services.AddAutoMapper(Assembly.Load("Products.Application"));
     builder.Services.AddControllers();
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -36,7 +36,13 @@ public class ProductsController : ControllerBase
     [HttpPost(Name = "InsertProducts")]
     public async Task<IActionResult> InsertProduct(ProductInsertCommand product)
     {
-        return Ok(_mediator.Send(product));
+        return Ok(await _mediator.Send(product));
+    }
+
+    [HttpPut(Name = "UpdateProducts")]
+    public async Task<IActionResult> UpdateProducts(ProductUpdateCommand product)
+    {
+        return Ok(await _mediator.Send(product));
     }
 
 }

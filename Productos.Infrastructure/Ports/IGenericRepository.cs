@@ -7,6 +7,6 @@ namespace Products.Infrastructure.Ports;
         Task<T> GetByIdAsync(int id);
         Task<T> AddAsync(T entity);
         void UpdateAsync(T entity);
-        void Save();
+        Task Save();
     }
 

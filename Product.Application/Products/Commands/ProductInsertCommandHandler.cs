@@ -19,7 +19,13 @@ public class ProductInsertCommandHandler : IRequestHandler<ProductInsertCommand,
     public async Task<Product> Handle(ProductInsertCommand request, CancellationToken cancellationToken)
     {
         if (request is null) throw new ArgumentNullException(nameof(request));
-        var product = await _productRepository.AddAsync(new Product(request.Name, request.Description, Status.Active, request.Stock, request.Price));
+        var product = await _productRepository.AddAsync(new Product(
+            request.Name, 
+            request.Description, 
+            Status.Active, 
+            request.Stock, 
+            request.Price
+            ));
         return product;
     }
 }

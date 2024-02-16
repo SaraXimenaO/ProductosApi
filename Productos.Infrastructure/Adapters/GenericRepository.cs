@@ -32,6 +32,6 @@ public class GenericRepository<T> : IGenericRepository<T> where T : DomainEntity
         _dbSet.Update(entity);
     }
 
-    public void Save() => _context.SaveChanges();
+    public async Task Save() => await _context.SaveChangesAsync();
 }
 

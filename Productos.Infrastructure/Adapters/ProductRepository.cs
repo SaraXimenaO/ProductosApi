@@ -10,20 +10,21 @@ public class ProductRepository : IProductRepository
 
     public ProductRepository(IGenericRepository<Product> genericRepository)
     {
-        _genericRepository = genericRepository;
+        _genericRepository = genericRepository ?? throw new ArgumentNullException(nameof(genericRepository));
     }
 
 
     public async Task<Product> AddAsync(Product product)
     {
         var result = await _genericRepository.AddAsync(product);
-        _genericRepository.Save();
+        await _genericRepository.Save();
         return result;
     }
 
-    public void UpdateAsync(Product product)
+    public async Task UpdateAsync(Product product)
     {
         _genericRepository.UpdateAsync(product);
+        await _genericRepository.Save();
     }
 
     public Task<Product> GetProductAsync(int id)
