@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Products.Domain.Ports;
+
 namespace Products.Infrastructure.Adapters;
 
 public class FileResponseTimeLogger : IResponseTimeLogger
@@ -11,10 +12,11 @@ public class FileResponseTimeLogger : IResponseTimeLogger
         _logFilePath = configuration["Logging:ResponseTimeLogFile"];
     }
 
-    public void LogResponseTime(DateTime requestTime, TimeSpan responseTime, string resquest)
+    public void LogResponseTime(DateTime requestTime, string resquest)
     {
         try
         {
+            TimeSpan responseTime = DateTime.Now - requestTime;
             using (StreamWriter writer = File.AppendText(_logFilePath))
             {
                 writer.WriteLine($"{resquest} Request Time: {requestTime} | Response Time: {responseTime}");

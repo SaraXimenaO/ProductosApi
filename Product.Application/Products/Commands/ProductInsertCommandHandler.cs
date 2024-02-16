@@ -30,9 +30,8 @@ public class ProductInsertCommandHandler : IRequestHandler<ProductInsertCommand,
             request.Stock,
             request.Price
             ));
-        TimeSpan responseTime = DateTime.Now - requestTime;
 
-        _responseTimeLogger.LogResponseTime(requestTime, responseTime, nameof(ProductInsertCommand));
+        _responseTimeLogger.LogResponseTime(requestTime, nameof(ProductInsertCommand));
         
         return product;
     }
