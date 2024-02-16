@@ -19,7 +19,14 @@ public class ApplicationContext : DbContext
         if (modelBuilder == null) { return; }
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+        modelBuilder.Entity<Product>()
+                .HasKey(prop => prop.ProductId);
+        modelBuilder.Entity<Product>()
+                .Property(prop => prop.ProductId).ValueGeneratedOnAdd();
 
+        modelBuilder.Entity<Product>()
+            .Property(prop => prop.Price)
+            .HasColumnType("decimal(18,2)");
         base.OnModelCreating(modelBuilder);
     }
 
