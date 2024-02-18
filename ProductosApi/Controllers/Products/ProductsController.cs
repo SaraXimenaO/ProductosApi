@@ -36,13 +36,29 @@ public class ProductsController : ControllerBase
     [HttpPost(Name = "InsertProducts")]
     public async Task<IActionResult> InsertProduct(ProductInsertCommand product)
     {
-        return Ok(await _mediator.Send(product));
+        try
+        {
+            return Ok(await _mediator.Send(product));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while insert product");
+            return StatusCode(500, "Internal server error");
+        }
     }
 
     [HttpPut(Name = "UpdateProducts")]
     public async Task<IActionResult> UpdateProducts(ProductUpdateCommand product)
     {
-        return Ok(await _mediator.Send(product));
+        try
+        {
+            return Ok(await _mediator.Send(product));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while update product");
+            return StatusCode(500, "Internal server error");
+        }
     }
 
 }
