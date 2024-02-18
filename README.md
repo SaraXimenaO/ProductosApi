@@ -1,19 +1,17 @@
 # ProductosApi
 
-API para obtener, actualizar y crear productos
+API para obtener, actualizar y crear productos 
 
-## Patrones y Arquitectura
+## Patrones de diseño DDD Domain driven desing:
 
-### Patrones de diseño DDD Domain driven desing:
+### Inyección de dependencias
+### Mediator
+### Repository
 
-#### Inyección de dependencias
-#### Mediator
-#### Repository
+## Patrones de arquitectura:
 
-### Patrones de arquitectura:
-
-#### Arquitectura Exagonal
-#### CQRS
+### Arquitectura Exagonal
+### CQRS
 
 ## Test unitarios
 ### XUnit
