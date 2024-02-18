@@ -2,7 +2,8 @@
 
 API para obtener, actualizar y crear productos 
 
-## Patrones de diseño DDD Domain driven desing:
+## Patrones de diseño 
+### DDD Domain driven desing:
 
 ### Inyección de dependencias
 ### Mediator
