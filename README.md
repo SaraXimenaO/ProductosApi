@@ -7,10 +7,17 @@ API para obtener, actualizar y crear productos
 ### Patrones de diseño:
 
 #### Inyección de dependencias
-#### C
+#### Mediator
+#### Repository
 
-### Patrones de arquetectura:
+### Patrones de arquitectura:
 
 #### Arquitectura Exagonal
 #### CQRS
-#### 
+#### DDD Domain driven desing
+
+## Test unitarios
+### XUnit
+### Moq
+
+
