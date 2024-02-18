@@ -4,19 +4,21 @@ namespace Product.Domain.Test
 {
     public class ProductTest
     {
-        [Fact]
-        public void CalculateDiscountPrice_ReturnsCorrectValue()
+        [Theory]
+        [InlineData(100.00, 20, 80.00 )]
+        [InlineData(100.00, 40, 60.00)]
+        public void CalculateDiscountPrice_ReturnsCorrectValue(decimal price, int percent, decimal expected)
         {
             // Arrange
             var product = new ProductBuilder()
-                .WithPrice(100.00m)
+                .WithPrice(price)
                 .Build();
 
             // Act
-            var discountedPrice = product.calculateDiscountPrice(20);
+            var discountedPrice = product.calculateDiscountPrice(percent);
 
             // Assert
-            Assert.Equal(80.00m, discountedPrice);
+            Assert.Equal(expected, discountedPrice);
 
         }
     }
