@@ -31,7 +31,7 @@ namespace Products.Application.Products.Querys
         {
             DateTime requestTime = DateTime.Now;
             var productStatusDictionary = _productStatusCache.GetProductStatusDictionary();
-            var Product = await _productRepository.GetProductAsync(request.ProductId);
+            Product Product = await _productRepository.GetProductAsync(request.ProductId);
             DiscountResponse discountResponse = await _discountService.GetDiscountAsync(request.ProductId);
             string statusName = productStatusDictionary.TryGetValue((int)Product.Status, out string name) ? name : "Inactive";
 
@@ -45,7 +45,7 @@ namespace Products.Application.Products.Querys
                 Product.Description,
                 Product.Price,
                 discountResponse.Discount,
-                Product.Price * (100 - discountResponse.Discount) / 100
+                Product.CalculateDiscountPrice(discountResponse.Discount)
             ) ;
         }
 

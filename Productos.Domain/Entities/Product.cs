@@ -28,4 +28,9 @@ public class Product : DomainEntity
     public Status Status { get; set; }
     public int Stock { get; set; }
     public decimal Price { get; set; }
+
+    public decimal CalculateDiscountPrice(int discount)
+    {
+        return Price * (100 - discount) / 100;
+    }
 }
