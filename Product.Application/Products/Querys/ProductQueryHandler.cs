@@ -45,7 +45,7 @@ namespace Products.Application.Products.Querys
                 Product.Description,
                 Product.Price,
                 discountResponse.Discount,
-                Product.CalculateDiscountPrice(discountResponse.Discount)
+                Product.calculateDiscountPrice(discountResponse.Discount)
             ) ;
         }
 

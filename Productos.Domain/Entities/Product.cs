@@ -29,7 +29,7 @@ public class Product : DomainEntity
     public int Stock { get; set; }
     public decimal Price { get; set; }
 
-    public decimal CalculateDiscountPrice(int discount)
+    public decimal calculateDiscountPrice(int discount)
     {
         return Price * (100 - discount) / 100;
     }
