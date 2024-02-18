@@ -1,6 +1,6 @@
 # ProductosApi
 
-API para obtener, actualizar y crear productos, guarda es tiempo de demora de las transacciones en un archivo de texto palno y consume un servicio exteno para obtener el descuento por cada producto.
+API para obtener, actualizar y crear productos, guarda el tiempo de demora de las transacciones en un archivo de texto palno y consume un servicio exteno para obtener el descuento por cada producto.
 
 ## Patrones de diseño 
 ### (DDD Domain driven desing)
