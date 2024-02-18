@@ -25,7 +25,7 @@ API para obtener, actualizar y crear productos
 
 #### .Net Framework 7
 #### LocalDB SqlServer
-Configura el connectionstring de la siguiente manera
+##### Configura el connectionstring de la siguiente manera
   "ConnectionStrings": {
     "db": "Server=(localdb)\\MSSQLLocalDB;Database=Prueba;Trusted_Connection=True"
 #### MockApi 
