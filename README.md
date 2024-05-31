@@ -11,7 +11,7 @@ API para obtener, actualizar y crear productos, guarda el tiempo de demora de la
 
 ## Patrones de arquitectura:
 
-### * Arquitectura Exagonal
+### * Arquitectura Hexagonal
 ### * CQRS
 
 ## Test unitarios
